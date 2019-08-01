@@ -1,4 +1,6 @@
-# Used to RGB-D 3D Model Retrieval
+# Fork and Use to RGB-D 3D Model Retrieval
+
+> 2019/08/01	Jiadai Sun  sunjiadai@foxmail.com
 
 |      Query Point Cloud      |         Dataset Model         | Result to be modified |
 | :-------------------------: | :---------------------------: | :-------------------: |
@@ -6,7 +8,7 @@
 
 > If the information of prediction category is used, the result is good(As shown in the figure above), but if it is searched directly in the database, the effect is not perfect and needs to be improved.
 
-### What I have done
+### <font color=red>What I have done</font>
 
 - [x] **Making ObjectNN HDF5 Data Set**
 
@@ -18,7 +20,7 @@
 
   Save the result to `GlobalFeature/database0.csv ... database103.csv & query0.csv ... query13.csvq`
 
-- [ ] **Add** `calcSimilarity.py`
+- [x] **Add** `calcSimilarity.py`
 
   Load `database.csv & query.csv` , use **cosine_similarity** to calculate similarity between query and dataset. To be optimized.
 
@@ -36,18 +38,31 @@
      	  	 |--10_Chair_OfficeChair.obj  (Top-K)
   ```
 
+- [x] Training model in ModelNet40 and ObjectNN
+
+  Reimplemented ModelNet40  --  the accuracy of classification **89.18%**
+
+  I use **objecnn20_data_hdf5_2048** made by myself ( SHREC'17 Objec) --  the accuracy of classification **64.16%**, if use the pretrained model in ModelNet40, can improve to **66.36%**
+
+  And I use to Global Feature generate by `pointnet-0.663555-0082.pth` to retrieve model
+
+- [x] **Training Semantic Segmentation in indoor3d_sem_seg_hdf5_data**  
+
+  This part of the work was done by the original author. I just reimplemented it again.
+
+- [x] Some `*.sh`  to help me
+
+### <font color=red>Still to be improved</font>
+
+- [ ] If you query directly in the database, the result is not perfect. But if I use category information as a priori information, I can get good results (the first picture)
+- [ ] Query speed needs to be improved
+- [ ] The way you view results can be optimized
 
 
 
-- `query_objectnn_clf.py`, `train_objectnn_clf.py` etc.
-- Test The ModelNet40 and ObjectNN
-- ....
+> The following parts are original README.md
 
-
-
-
-
-
+---------------------
 
 
 

@@ -1,5 +1,9 @@
 # Used to RGB-D 3D Model Retrieval
 
+![](./img/Result.png)
+
+> If the information of prediction category is used, the result is good(As shown in the figure above), but if it is searched directly in the database, the effect is not perfect and needs to be improved.
+
 - Modify some test
 - Used the GlobalFeature `[1024]` to query
 - Add `query_objectnn_clf.py`, `copyAndViewResult.py`, `query_objectnn_clf.py`, `train_objectnn_clf.py` etc.
@@ -64,11 +68,11 @@ This repo is implementation for [PointNet](http://openaccess.thecvf.com/content_
 ### PointNet++
 * python train_semseg.py --model_name pointnet2
 ### Performance (test on Area_5)
-|Model  | Mean IOU | ceiling | floor | wall | beam | column | window | door |  chair| tabel| bookcase| sofa | board | clutter | 
+|Model  | Mean IOU | ceiling | floor | wall | beam | column | window | door |  chair| tabel| bookcase| sofa | board | clutter |
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 | PointNet (Official) | 41.09|88.8|**97.33**|69.8|0.05|3.92|**46.26**|10.76|**52.61**|**58.93**|**40.28**|5.85|26.38|33.22|
 | PointNet (Pytorch) | **44.43**|**91.1**|96.8|**72.1**|**5.82**|**14.7**|36.03|**37.1**|49.36|50.17|35.99|**14.26**|**33.9**|**40.23**|
-| PointNet++ (Official) |N/A | | | | | | | | 
+| PointNet++ (Official) |N/A | | | | | | | |
 | PointNet++ (Pytorch) | **52.28**|91.7|95.9|74.6|0.1|18.9|43.3|31.1|73.1|65.8|51.1|27.5|43.8|53.8|
 * Training Pointnet with 0.001 learning rate in Adam, 24 batchsize and 84 epochs.
 * Training Pointnet++ with 0.001 learning rate in Adam, 12 batchsize and 67 epochs.

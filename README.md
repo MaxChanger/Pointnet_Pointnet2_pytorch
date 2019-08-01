@@ -1,14 +1,46 @@
 # Used to RGB-D 3D Model Retrieval
 
-![](./img/Result.png)
+|      Query Point Cloud      |         Dataset Model         | Result to be modified |
+| :-------------------------: | :---------------------------: | :-------------------: |
+| ![](./img/query_render.png) | ![](./img/dataset_render.png) | ![](./img/Result.png) |
 
 > If the information of prediction category is used, the result is good(As shown in the figure above), but if it is searched directly in the database, the effect is not perfect and needs to be improved.
 
-- Modify some test
-- Used the GlobalFeature `[1024]` to query
-- Add `query_objectnn_clf.py`, `copyAndViewResult.py`, `query_objectnn_clf.py`, `train_objectnn_clf.py` etc.
+### What I have done
+
+- [x] **Making ObjectNN HDF5 Data Set**
+
+  The part of how to deal with SHREC17-ObjectNN, can find in https://github.com/MaxChanger/DealWithSHREC
+
+- [x] **Add** `query_objectnn_clf.py`
+
+  Extract and Used the Global Feature `[1024]` as the Feature of Query & dataset
+
+  Save the result to `GlobalFeature/database0.csv ... database103.csv & query0.csv ... query13.csvq`
+
+- [ ] **Add** `calcSimilarity.py`
+
+  Load `database.csv & query.csv` , use **cosine_similarity** to calculate similarity between query and dataset. To be optimized.
+
+- [x] **Add**  `copyAndViewResult.py`
+
+  According to similarity, we can find the highest similarity model in database, copy them to this folder
+
+  ```sh
+  ---Result
+     |--query201_Chair_OfficeChair
+     	  |--036_529b.ply
+     	  |--model
+     	  	 |--01_Chair_OfficeChair.obj
+     	  	 |--...
+     	  	 |--10_Chair_OfficeChair.obj  (Top-K)
+  ```
+
+
+
+
+- `query_objectnn_clf.py`, `train_objectnn_clf.py` etc.
 - Test The ModelNet40 and ObjectNN
-- The part of how to deal with SHREC17-ObjectNN, can find in https://github.com/MaxChanger/DealWithSHREC
 - ....
 
 
